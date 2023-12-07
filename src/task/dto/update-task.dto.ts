@@ -1,4 +1,11 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateTaskDto } from './create-task.dto';
+import { IsBoolean, IsNotEmpty } from 'class-validator';
 
-export class UpdateTaskDto extends PartialType(CreateTaskDto) {}
+export class UpdateTaskDto {
+  @IsNotEmpty({
+    message: 'A Marcação de Concluído deve ser informada',
+  })
+  @IsBoolean({
+    message: 'A Marcação de Concluído deve ser true ou false',
+  })
+  is_completed: boolean;
+}
