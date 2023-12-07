@@ -6,6 +6,7 @@ Este é o projeto Backend da API de teste **Dysrup**. As tecnologias usados no p
 - Typescript (versão 5.1.3)
 - TypeORM (versão 0.3.17)
 - MySQL (versão 8.0.31)
+- Node.js (versão v20.5.0)
 
 ## Instalação
 
