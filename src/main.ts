@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -18,6 +19,15 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors(configService.get('cors'));
+
+  const options = new DocumentBuilder()
+    .setTitle('API de Testes')
+    .setDescription('API de teste gerenciador de Projetos')
+    .setVersion('1.0')
+    .addTag('projects')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('/docs', app, document);
 
   await app.listen(port);
 }

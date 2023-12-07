@@ -1,6 +1,8 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsNotEmpty } from 'class-validator';
 
 export class UpdateTaskDto {
+  @ApiProperty()
   @IsNotEmpty({
     message: 'A Marcação de Concluído deve ser informada',
   })
